@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 """
-xpb_bruteforce.py – Scova le versioni “retro” di stack web
-dai campi X-Powered-By e Server.
+CheckerBruttoForte.py – Fires GET on targets, extracts X-Powered-By header,
+collects "vintage" tech versions and prints Top-5. 
 
 USAGE
-  python3 xpb_bruteforce.py -f targets.txt          # da file
-  python3 xpb_bruteforce.py -u https://a https://b  # da CLI
+  python3 CheckerBruttoForte.py -f targets.txt          # from file
+  python3 CheckerBruttoForte.py -u https://a https://b  # from CLI
 
 Flags extra
-  --verbose   Stampa tutti gli header per ogni host
-  -t 20       Imposta #thread (default 10)
+  --verbose   print all the info, header incluede
+  -t 20       Set #thread (default 10)
 """
 
 import argparse
@@ -22,10 +22,10 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import requests
 
 # ——————————————————————————————————————————————————————————
-# Disattiva l’allarme giallo sui cert self-signed
+# Deactivate warnings about cert self-signed
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-# Firma → regex per estrarre la versione (o vuota se non serve)
+# Regex to extract versions
 SIGS = {
     "PHP":       re.compile(r"PHP/(\d+\.\d+\.\d+)", re.I),
     "ASP.NET":   re.compile(r"ASP\.NET/?(\d+\.\d+)?", re.I),
@@ -39,7 +39,7 @@ SIGS = {
 
 # ——————————————————————————————————————————————————————————
 def fetch_header(url, timeout=5, verbose=False):
-    """Ritorna stringa tipo 'PHP 5.6.40' o None"""
+    """Return something like 'PHP 5.6.40' or None"""
     try:
         r = requests.get(
             url,
@@ -48,16 +48,16 @@ def fetch_header(url, timeout=5, verbose=False):
             verify=False,
         )
         if verbose:
-            print(f"\n--- {url} headers ---")
+            print(f"\n---🤐 {url} headers ---")
             for k, v in r.headers.items():
                 print(f"{k}: {v}")
 
-        # Concateno X-Powered-By e Server, così becco più roba
+        # Let's concatenate X-Powered-By and Server to increase output
         banner = "\n".join([f"{k}: {v}" for k, v in r.headers.items()])
 
         for tech, rx in SIGS.items():
             if (m := rx.search(banner)):
-                version = m.group(1) or ""      # alcune firme non hanno num versione
+                version = m.group(1) or ""      
                 return f"{tech} {version}".strip()
 
     except requests.RequestException:
@@ -111,7 +111,7 @@ def main():
 
     # — Report
     if not counter:
-        sys.exit("\n[!] Nessuna firma trovata.")
+        sys.exit("\n[!] No signature found.")
 
     print("\n=== Top 5 stack retro ===")
     for sig, n in counter.most_common(5):
