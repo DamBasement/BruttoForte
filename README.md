@@ -7,7 +7,7 @@
 _A tiny banner-grabber that digs through **X-Powered-By** and **Server** headers to spot “vintage” web stacks (aka low-hanging fruit)._  
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue) ![License](https://img.shields.io/badge/License-MIT-green) ![Status](https://img.shields.io/badge/status-hack_in_progress-ff69b4)
-
+![PHP 5 Detected](https://img.shields.io/badge/PHP_5-Detected-critical?logo=php&labelColor=7846ab)
 ---
 
 ## TL;DR
