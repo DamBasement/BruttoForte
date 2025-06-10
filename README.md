@@ -1,7 +1,6 @@
 # BruttoForte
 
-“There are two kinds of servers: those already hacked and those still leaking X-Powered-By.”
-— some jaded pentester
+> There are two kinds of servers: those already hacked and those still leaking X-Powered-By.
 
 # 🕵️‍♂️ CheckerBruttoForte  
 _A tiny banner-grabber that digs through **X-Powered-By** and **Server** headers to spot “vintage” web stacks (aka low-hanging fruit)._  
