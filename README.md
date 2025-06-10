@@ -32,25 +32,25 @@ pip install -r requirements.txt   # only: requests
 
 # 1 – create targets.txt
 cat > targets.txt <<EOF
-https://intranet.lan
-http://legacy.portal
-https://hub.leonardo.com
+https://url.net
+http://url.com
+https://url.org
 EOF
 
 # 2 – basic run (10 threads)
-python3 xpb_bruteforce.py -f targets.txt
+python3 CheckerBruttoForte.py -f targets.txt
 
 # 3 – verbose run + more threads
-python3 xpb_bruteforce.py -f targets.txt -t 30 --verbose
+python3 CheckerBruttoForte.py -f targets.txt -t 30 --verbose
 
 [+] Scanning 3 target(s) with 30 threads…
-    https://hub.leonardo.com         -> IIS 8.5
-    https://intranet.lan            -> PHP 5.6.40
-    http://legacy.portal            -> ASP.NET 4.0.30319
+    https://url.com         -> IIS 8.5
+    https://url.lan            -> PHP 5.6.40
+    http://url.portal            -> ASP.NET 4.0.30319
 
 === Top 5 retro stacks ===
-[2 hit] IIS 8.5           <--  https://hub.leonardo.com ...
-[1 hit] PHP 5.6.40        <--  https://intranet.lan
+[2 hit] IIS 8.5           <--  https://url.com ...
+[1 hit] PHP 5.6.40        <--  https://url.lan
 
 Done. Legacy never dies. 💀
 ```
