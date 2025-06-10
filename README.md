@@ -53,6 +53,7 @@ python3 xpb_bruteforce.py -f targets.txt -t 30 --verbose
 [1 hit] PHP 5.6.40        <--  https://intranet.lan
 
 Done. Legacy never dies. 💀
+```
 
 ## TODO
 CSV / JSON output for CI pipelines.
