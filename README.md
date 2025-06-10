@@ -56,10 +56,10 @@ Done. Legacy never dies. 💀
 ```
 
 ## TODO
-CSV / JSON output for CI pipelines.
-Load regex signatures from YAML.
-“Noisy” mode with directory brute (/phpinfo.php, /server-status, …).
-Award badge if it finds PHP 5.x in 2025. BELIEVE ME, I DID IT. 😜
+* CSV / JSON output for CI pipelines.
+* Load regex signatures from YAML.
+* “Noisy” mode with directory brute (/phpinfo.php, /server-status, …).
+* Award badge if it finds PHP 5.x in 2025. BELIEVE ME, I DID IT. 😜
 
 ## Legal stuff
 Run it only on systems you are explicitly authorised to test.
