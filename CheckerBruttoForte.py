@@ -93,7 +93,7 @@ def main():
     if not targets:
         sys.exit("[x] No valid targets supplied.")
 
-    # — Scan
+    # --- Scan ---------------------------------------------------
     counter = Counter()
     details = defaultdict(list)
 
@@ -109,7 +109,7 @@ def main():
                 details[sig].append(url)
                 print(f"    {url:40} -> {sig}")
 
-    # — Report
+    # --- Report ---------------------------------------------------
     if not counter:
         sys.exit("\n[!] No signature found.")
 
@@ -119,6 +119,11 @@ def main():
         extra = " ..." if n > 1 else ""
         print(f"[{n} hit] {sig:<15}  <--  {first}{extra}")
 
+    # --- Retro badge ---------------------------------------------------
+    php5_found = any(sig.startswith("PHP 5.") for sig in counter)
+    if php5_found:
+        print("\n☠️  **PHP 5.x DETECTED — time to party like it’s 2008!** ☠️")
+      
     print("\nDone. Legacy never dies. 💀")
 
 
