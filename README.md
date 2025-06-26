@@ -1,8 +1,7 @@
-# BruttoForte
+# :japanese_ogre: BruttoForte
 
 > There are two kinds of servers: those already hacked and those still leaking X-Powered-By.
-
-# :japanese_ogre: CheckerBruttoForte  
+ 
 _A tiny banner-grabber that digs through **X-Powered-By** and **Server** headers to spot “vintage” web stacks (aka low-hanging fruit)._  
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue) ![License](https://img.shields.io/badge/License-MIT-green) ![Status](https://img.shields.io/badge/status-hack_in_progress-ff69b4)
