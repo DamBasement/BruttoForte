@@ -1,5 +1,7 @@
 # BRUTTOFORTE — Banner Fingerprinting Tool
 
+ <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2JnbnY1Y3l0aWFiMWhyMTU2Yzh1ZGJpYXp1cXZlenoxNHNvc3kxbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/J1Ezcgfqe6fHLQDUtz/giphy.gif" width="600"/>
+
 *A fast banner-grabber for vintage stacks and obvious misconfigs.*  
 _There are two kinds of servers: those already hacked and those still leaking `X-Powered-By`._
 
